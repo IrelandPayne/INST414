@@ -1,2 +1,2 @@
 # INST414
-# Module 1 updated!
+# Module 2 updated!
