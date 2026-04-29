@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.metrics import accuracy_score, classification_report
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix, ConfusionMatrixDisplay
 from IPython.display import display
 
 # loading data
@@ -82,3 +82,11 @@ wrong = results[results["actual"] != results["predicted"]].head(5)
 display(
     wrong[["track_name","artists","track_genre","popularity","actual","predicted"] + features]
 )
+
+#confusion matrix
+cm = confusion_matrix(y_test, preds)
+
+disp = ConfusionMatrixDisplay(confusion_matrix=cm)
+disp.plot()
+plt.title("Confusion Matrix")
+plt.show()
